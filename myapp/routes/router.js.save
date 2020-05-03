@@ -1,0 +1,28 @@
+
+
+//App routes  
+module.exports = function(app){  
+
+/*var router = express.Router();*/
+/*app.get('/', function(req, res) {
+   res.send("Hello World! SI K FUNCIONA");
+});*/
+var persona = require('../models/persona');  
+  
+    //find all people  
+    list = function(req, res){  
+	try{
+        	persona.find(function(err, people) {  
+            		res.send(people);  
+        	});
+	}catch(error){
+		console.log(error);
+	}
+    };  
+  
+  
+    //Link routes and functions  
+    app.get('/persona', list);  
+
+
+};
